@@ -9,6 +9,7 @@ function MyApp({ Component, pageProps }) {
       theme={extendTheme({
         fonts: {
           body: "Inter",
+          heading: "Inter",
         },
       })}
     >

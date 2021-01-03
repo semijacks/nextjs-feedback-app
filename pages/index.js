@@ -1,4 +1,13 @@
-import { Button, Container, Center, Box } from "@chakra-ui/react";
+import {
+  Button,
+  Container,
+  Center,
+  Box,
+  Text,
+  Heading,
+} from "@chakra-ui/react";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useAuth } from "../utils/auth";
 
 export default function Index() {
@@ -18,24 +27,23 @@ export default function Index() {
       <Container>
         <Center my={10}>
           {auth.user ? (
-            <div>
-              <p>Email: {auth.user.email}</p>
-              <Button colorScheme="blue" onClick={(e) => auth.signout()}>
+            <Center display="flex" flexDirection="column">
+              <Text opacity={0.9}>{auth.user.email}</Text>
+              <Button mt={5} colorScheme="blue" onClick={(e) => auth.signout()}>
                 Sign Out
               </Button>
-            </div>
+            </Center>
           ) : (
-            <div>
+            <Box display="flex" flexDirection="column" alignItems="center">
+              <Heading mb={5}>Sign in</Heading>
               <Button
+                leftIcon={<FontAwesomeIcon icon={faGithub} />}
                 colorScheme="blue"
                 onClick={(e) => auth.signinWithGitHub()}
               >
                 Sign in with Github
               </Button>
-              {/* <button onClick={(e) => auth.signinWithGoogle("http://localhost:3000")}>
-        Sign in with Google
-      </button> */}
-            </div>
+            </Box>
           )}
         </Center>
       </Container>
