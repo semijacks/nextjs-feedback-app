@@ -10,7 +10,11 @@ export default function Index() {
         backgroundColor: "#fbfbfb",
       }}
     >
-      <Box w="100%" h={3} bgGradient="linear(to-l, #7928CA, #FF0080)" />
+      <Box
+        w="100%"
+        h={4}
+        bgGradient="linear(to-l, #f722ca, #7928CA, #c00ab8, #FF0080,)"
+      />
       <Container>
         <Center my={10}>
           {auth.user ? (
