@@ -1,18 +1,15 @@
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
-import { AuthProvider } from "../utils/auth";
-import theme from "../styles/theme";
+import { Global } from "@emotion/react";
+import { AuthProvider } from "@/utils/auth";
+import myTheme from "@/styles/theme";
+import fonts from "@/styles/font-face";
+
+const theme = extendTheme(myTheme);
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ChakraProvider
-      resetCSS={true}
-      theme={extendTheme({
-        fonts: {
-          body: "Inter",
-          heading: "Inter",
-        },
-      })}
-    >
+    <ChakraProvider theme={theme}>
+      <Global styles={fonts} />
       <AuthProvider>
         <Component {...pageProps} />
       </AuthProvider>
